@@ -20,7 +20,7 @@ internal class AudioManager(private val context: Context) {
     }
 
     private val mMediaPlayer by lazy {
-        MediaPlayer.create(context, R.raw.empty)
+        MediaPlayer.create(context, R.raw.silent)
     }
 
     init {
