@@ -1,5 +1,8 @@
 package com.margintop.anroid.library.utils
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.Service
 import android.content.*
 import android.os.Build
 import android.support.annotation.RequiresApi
@@ -48,6 +51,24 @@ fun Context.stopServiceSafely(service: Intent) {
 fun Context.startForegroundServiceSafely(service: Intent) {
     catchExceptionByIgnore {
         this.startForegroundService(service)
+    }
+}
+
+fun Service.startForegroundSafely(id: Int, notification: Notification) {
+    catchExceptionByIgnore {
+        this.startForeground(id, notification)
+    }
+}
+
+fun Service.stopForegroundSafely(removeNotification: Boolean) {
+    catchExceptionByIgnore {
+        this.stopForeground(removeNotification)
+    }
+}
+
+fun NotificationManager.cancelSafely(id: Int) {
+    catchExceptionByIgnore {
+        this.cancel(id)
     }
 }
 

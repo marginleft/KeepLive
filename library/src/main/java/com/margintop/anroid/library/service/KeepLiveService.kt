@@ -42,7 +42,7 @@ class KeepLiveService : LoggerService() {
         super.onDestroy()
         unbindServiceSafely(mConn)
         mScreenManager.unregisterScreenReceiver()
-        mForegroundManager.cancelNotification()
+        mForegroundManager.cancelServiceForeground()
     }
 
 }

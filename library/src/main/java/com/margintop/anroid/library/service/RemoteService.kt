@@ -53,7 +53,7 @@ class RemoteService : LoggerService() {
         super.onDestroy()
         unbindServiceSafely(mConn)
         mAudioManager.stopMusic()
-        mForegroundManager.cancelNotification()
+        mForegroundManager.cancelServiceForeground()
         mTimingManager.stopJob()
         mWakeUpBroadcastManager.unregisterWakeUpReceiver()
         // 调用stopKeepLiveService方法会杀不死服务，但是如果不关心服务的关闭，可取消注释。
